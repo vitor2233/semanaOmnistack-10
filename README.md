@@ -1,5 +1,7 @@
 # semanaOmnistack-10
 
+App built during omnistack 10 with Node.js, ReactJS
+
 ## Installation
 
 ### Clone
