@@ -1,3 +1,12 @@
+@import url('//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css');
+@import url('//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css');
+@import url('//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css');
+@import url('//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css');
+/* Botão cancel vem do alertify em inglês, então adicionar 'ar' para 'cancelar'.*/
+button.ajs-button.ajs-cancel:after {
+    content: 'ar';
+}
+
 main {
     width: 100%;
 }
@@ -65,4 +74,24 @@ li.dev-item a {
 
 li.dev-item a:hover {
     color: #5A2EA6;
+}
+.button-list{
+    display: flex;
+    justify-content: flex-start;
+}
+.button-list button {
+    background: #FFF;
+    border: none;
+    cursor: pointer;
+}
+.button-list button#edit {
+    color: #ffc107;
+    margin-right: 5px;
+}
+.button-list button#delete {
+    color: #dc3545;
+    margin-left: 5px;
+}
+.button-list button:hover {
+    text-decoration: underline;
 }
