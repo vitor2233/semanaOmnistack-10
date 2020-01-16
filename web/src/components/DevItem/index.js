@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import api from '../../services/api';
 import './styles.css'
 
 import alertify from 'alertifyjs';
 
 function DevItem({ dev }) {
-    const [name, setName] = useState('');
-    const [techs, setTechs] = useState('');
-    const [bio, setBio] = useState('');
 
     async function handleDelete(dev) {
         alertify.confirm('Confirmar exclusão', `Tem certeza que quer excluir ${dev.name}?`,
@@ -19,18 +16,43 @@ function DevItem({ dev }) {
             });
     }
 
-    async function handleUpdate(dev) {
-       /* fazer o campo para editar
-        alertify.prompt('Editar Dev', 'Prompt Message', 'Prompt Value',
-            (evt, value) => {
-                alertify.success('You entered: ' + value)
+    async function handleName(dev, atr) {
+        alertify.prompt('Editar Nome', 'Entre com o novo atributo', `${atr}`,
+            async (evt, value) => {
+                const params = {
+                    name: value
+                }
+                api.put('/devs/' + dev._id, params);
+                window.location.reload();
             }, () => {
                 alertify.error('Edição cancelada')
             });
-        const params = {
+    }
 
-        }
-        */
+    async function handleTech(dev, atr) {
+        alertify.prompt('Editar Tecnologias', 'Entre com o novo atributo', `${atr}`,
+            async (evt, value) => {
+                const params = {
+                    techs: value
+                }
+                api.put('/devs/' + dev._id, params);
+                window.location.reload();
+            }, () => {
+                alertify.error('Edição cancelada')
+            });
+    }
+
+    async function handleBio(dev, atr) {
+        alertify.prompt('Editar Bio', 'Entre com o novo atributo', `${atr}`,
+            async (evt, value) => {
+                const params = {
+                    bio: value
+                }
+                api.put('/devs/' + dev._id, params);
+                window.location.reload();
+            }, () => {
+                alertify.error('Edição cancelada')
+            });
     }
 
     return (
@@ -39,14 +61,13 @@ function DevItem({ dev }) {
                 <img src={dev.avatar_url} alt={dev.name} />
                 <div className="user-info">
                     <div className="button-list">
-                        <button onClick={() => handleUpdate(dev)} id="edit">Editar</button>
                         <button onClick={() => handleDelete(dev)} id="delete">Excluir</button>
                     </div>
-                    <strong>{dev.name}</strong>
-                    <span>{dev.techs.join(', ')}</span>
+                    <strong onClick={() => handleName(dev, dev.name)}>{dev.name}</strong>
+                    <span onClick={() => handleTech(dev, dev.techs)}>{dev.techs.join(', ')}</span>
                 </div>
             </header>
-            <p>{dev.bio}</p>
+            <p onClick={() => handleBio(dev, dev.bio)}>{dev.bio}</p>
             <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no Github</a>
         </li>
     );
