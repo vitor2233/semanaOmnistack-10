@@ -1,6 +1,6 @@
 # semanaOmnistack-10
 
-App built during omnistack 10 with Node.js, ReactJS
+App built during omnistack 10 with Node.js, ReactJS. Where you can find devs that are interested in same techs that you like.
 
 ## Installation
 
