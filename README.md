@@ -10,8 +10,8 @@ App built during omnistack 10 with Node.js, ReactJS
 
 ### Setup
 
-> Setup backend
-If you don't have mongoDB database, you have to create one
+> Setup backend.
+(If you don't have mongoDB database, you have to create one).
 
 ```shell
 $ cd backend
