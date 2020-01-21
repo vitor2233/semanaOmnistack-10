@@ -1,6 +1,6 @@
 # semanaOmnistack-10
 
-App built during omnistack 10 with Node.js, ReactJS
+App built during omnistack 10 with Node.js, ReactJS. Where you can find devs that are interested in same techs that you like.
 
 ## Installation
 
@@ -10,12 +10,29 @@ App built during omnistack 10 with Node.js, ReactJS
 
 ### Setup
 
-> install npm
+> Setup backend.
+(If you don't have mongoDB database, you have to create one).
 
 ```shell
 $ cd backend
-$ npm install
-$ npm start
+$ yarn install
+$ yarn dev
+```
+
+> Setup web
+
+```shell
+$ cd web
+$ yarn install
+$ yarn start
+```
+
+> Setup mobile
+
+```shell
+$ cd mobile
+$ yarn install
+$ yarn start
 ```
 
 ## Support
